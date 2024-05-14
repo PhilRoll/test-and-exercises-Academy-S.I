@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- visibilità  = scope. Consigliato usare let o const -->
+
+    <!--aggiunge un contenitore per visualizzare l'output della classe persona-->
+
+    <div id="output"></div>
+
+    <script>
+
+        function esempioVar(){
+
+            if(true) {
+
+                var x = 10;
+            }
+
+            console.log(x);
+        }
+
+        esempioVar();
+
+        // console.log(x); errore x non è definito, perchè è una variabile locale alla funzione esempioVar
+
+
+        function esempioLet(){
+
+            if(true) {
+
+                let y = 20;
+                console.log(y); // stampa 20 poichè y è accessibile solo all'interno di questo blocco if
+            }
+
+           // console.log(y) errore y non è definito perchè è una variabile locale al blocco if
+        }
+
+        esempioLet();
+
+
+        function esempioConst(){
+            
+            // const è una costante e non può essere riassegnato un valore 
+            const z = 30;
+            console.log(z); // stampa 30 
+           // z = 40;
+            //console.log(z);
+        }
+
+        esempioConst();
+
+        // una funzione è data dalla keyword function, nome funzione, eventuali parametri e corpo del metodo
+
+        function calcolaAreaQuadrato(lato) {
+
+            return lato*lato;
+
+        }
+
+
+        let latoQuadrato =5;
+
+        let areaQuadrato = calcolaAreaQuadrato(latoQuadrato);
+
+        console.log("l'area del quadrato è ", areaQuadrato);
+
+
+        // oggetto 
+        let persona = {
+
+            "nome":"Mario",
+            "cognome":"Rossi",
+            "eta":30
+        }
+
+        // funzione che stiamo passando è una funzione anonima ovvero NON ha il nome
+        persona.nomeCognome = function() {
+
+            return this.nome + " " + this.cognome;
+
+        }
+
+
+        // stamperà Mario Rossi
+        console.log(persona.nomeCognome());
+
+
+        let persona1 = {
+
+            "nome":"Mattia",
+            "cognome":"Rossi",
+            "eta":30,
+            nomeCognome: function(){
+
+                return this.nome + " " + this.cognome;
+            }
+        };
+
+        console.log(persona1.nomeCognome()); // stamperà Mattia Rossi
+
+
+        class Persona {
+
+            constructor(nome, cosgnome, eta) {
+
+
+                this.nome =  nome;
+                this.cognome = cognome;
+                this.eta =  eta;
+            }
+
+            saluta(){
+
+                console.log(`ciao sono ${this.nome} ${this.cognome} e ho ${this.eta} anni`);
+                // prende elemento dal DOM con il determinato id 
+                document.getElementById("output").innerText = `ciao sono ${this.nome} ${this.cognome} e ho ${this.eta} anni`;
+            }
+
+        }
+
+        // esempio di utilizzo della classe Persona
+
+        const persona11 = new Persona("Mario", "Rossi", 30);
+        persona11.saluta();
+
+
+
+
+
+    </script>
+</body>
+</html>

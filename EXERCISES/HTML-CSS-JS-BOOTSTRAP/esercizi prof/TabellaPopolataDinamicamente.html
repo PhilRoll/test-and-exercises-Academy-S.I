@@ -1,0 +1,88 @@
+<!--Popolare una tabella dinamicamente partendo da un array di oggetti contenente dei dati e da un elemento table in HTML-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella Popolata Dinamicamente</title>
+
+    <style>
+        table, th, tr, td  {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        table {
+            margin:20% auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <thead>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Email</th>
+            <th>CodiceFiscale</th>
+            <th>Indirizzo</th>
+        </thead>
+    </table>
+    <script>
+
+        const data = [
+            {
+                id:1,
+                nome:"Mario",
+                cognome:"Rossi",
+                email:"mario.rossi@gmail.it",
+                codiceFiscale: "hkewowlkwnd",
+                indirizzo: "via prova"
+            },
+            {
+                id:2,
+                nome:"Luca",
+                cognome:"Rossi",
+                email:"luca.rossi@gmail.it",
+                codiceFiscale: "lrcskjsjukis",
+                indirizzo: "via prova"
+            },
+            {
+                id:3,
+                nome:"Lorenzo",
+                cognome:"Taverna",
+                email:"lorenzotaverna@icloud.com",
+                codiceFiscale: "tvrlanzklskn",
+                indirizzo: "via vasto"
+            }
+        ]
+
+    
+        const table = document.getElementById("table");
+        data.forEach((obj)=>{
+
+            createRow(obj)
+        })
+
+        function createRow(obj){
+           
+            const row = document.createElement("tr");
+            
+
+            Object.keys(obj).forEach(key=>{
+                
+                const column = document.createElement("td");
+                const text = document.createTextNode(obj[key]);
+                column.appendChild(text);
+                row.appendChild(column);
+            })
+
+            table.appendChild(row);
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esercizio 5</title>
+    </head>
+    <body>
+        <header>
+            <img src="pizza.png" alt="Pizza" width="300" height="200">
+            <h1>PIZZA ON-DEMAND</h1>
+        </header>
+
+        <main>
+            <p style="color: red;"><em>costruisci la tua pizza con gli ingredienti e te la porteremo tra un'ora!</em></p>
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Le tue informazioni</legend>
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" required>
+                    <br>
+                    <label for="surname">Cognome</label>
+                    <input type="text" id="surname" required>
+                    <br>
+                    <label for="telnumber" style="color: red;">Numero di telefono:</label>
+                    <input type="tel" id="telnumber" required>
+                    <br>
+                    <label for="deliveryInstructions">Istruzioni per la consegna<br></label>
+                    <textarea id="deliveryInstructions" name="deliveryInstructions" placeholder="indicazioni per la consegna" required></textarea>
+                    <br>
+                    <label for="photo">invia foto della zona per facilitare il fattorino <em>(opzionale)</em>:<br></label>
+                    <input type="file" id="photo" >
+                </fieldset>
+    
+    
+                <fieldset>
+                    <legend><h2>Disegna la tua pizza</h2></legend>
+
+                    <fieldset>
+                        <legend>Specifiche pizza</legend>
+                        <fieldset>
+                            <legend>Base <em>(scegline una)</em></legend>
+                            <input type="radio" id="base1" name="base" value="bianca" required>
+                            <label for="base1">Bianca</label>
+                            <br>
+                            <input type="radio" id="base2" name="base" value="pizza rossa con mozzarella" required checked>
+                            <label for="base2">Pizza rossa con mozzarella</label>
+                            <br>
+                            <input type="radio" id="base3" name="base" value="gluten free" required>
+                            <label for="base3">Gluten free</label>
+                        </fieldset>
+                
+                        <fieldset>
+                            <legend>Scegli gli ingredienti</legend>
+                            <input type="checkbox" id="ingredient1" name="ingredient" value="funghi" checked>
+                            <label for="ingredient1">Funghi</label>
+                            <br>
+                            <input type="checkbox" id="ingredient2" name="ingredient" value="tartufo">
+                            <label for="ingredient2">Tartufo</label>
+                            <br>
+                            <input type="checkbox" id="ingredient3" name="ingredient" value="salsiccia" checked>
+                            <label for="ingredient3">Salsiccia</label>
+                            <br>
+                            <input type="checkbox" id="ingredient4" name="ingredient" value="salame">
+                            <label for="ingredient4">Salame</label>
+                        </fieldset>
+
+                    </fieldset>
+
+                </fieldset>
+                <br>
+                <button type="submit">Ordina</button>
+            </form>
+        </main>
+    </body>
+</html>

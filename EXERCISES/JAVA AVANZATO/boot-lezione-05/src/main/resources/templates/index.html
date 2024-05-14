@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Registrazione utente</title>
+	</head>
+	<body>
+		<form action="" method="POST">
+			<input type="text" name="nome" placeholder="il tuo nome..." required>
+			<br>
+			<input type="text" name="username" placeholder="il tuo username" required>
+			<br>
+			<input type="password" name="password" placeholder="la tua password" required>
+			<br>
+			<input type="submit" value="Registra Utente">
+		</form>
+		
+		<div th:if="${errore}">
+			errore di compilazione
+		</div>
+		
+		<!-- in questo modo con form di questo tipo possono esserci dei problemi perchè se si sbaglia un campo
+		bisogna riscrivere tutto e non viene detto dove viene fatto l'errore, quindi l'esperienza utente è pessima.
+		Si potrebbe risolvere con del lavoro aggiuntivo, ma c'è una soluzione senza impazzire e permette in 
+		un colpo solo di risparmiare parecchio codice e offrire agli utenti un'esperienza migliore. -->
+		
+		
+		
+	</body>
+</html>

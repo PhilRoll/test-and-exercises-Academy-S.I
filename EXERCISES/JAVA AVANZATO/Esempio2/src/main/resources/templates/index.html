@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>IL NOSTRO CATALOGO DEI PRODOTTI</h1>
+<ul style="list-style-type:none">
+<li th:each="c: ${catalogo}" th:text="${c.id} + ' - ' + ${c.descrizione} + ' - euro ' + ${c.prezzo}"></li>
+</ul>
+</body>
+</html>

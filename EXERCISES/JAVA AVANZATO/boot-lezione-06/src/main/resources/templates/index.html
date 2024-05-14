@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Registrazione Utente</title>
+
+</head>
+
+<body>
+
+	<!-- ci si aspetta tramite il model di ricevere un oggetto di tipo utente ed andrà ad innestarsi 
+	 all'interno del form e i vari campi di input diventeranno la rappresentazione degli attributi di 
+	 questo oggetto utente e non si andrà più nei campi di input a definire degli attributi name come
+	 nell'esercizio precedente, ma si andrà nei vari campi e si utilizzerà thymeleaf -->
+	<form method="POST" th:object="${utente}">
+
+		<!-- dentro le parentesi graffe usando il th:field si andrà a specificare l'esatto nome 
+		della variabile dell'oggetto utente che sarà relazionata allo specifico campo di input  -->
+		<input type="text" th:field="*{nome}" placeholder="inserire nome..." required>
+		
+		<!-- dalla classe fields si invoca la funzione hasError() passando il riferimento al campo,
+		quindi significa che il paragrafo viene renderizzato a condizione che l'invocazione di questa
+		funzione rilevi un errore sull'attributo nome di questo speficio campo di input. 
+		Per far uscire il messaggio inserito nella classe Utente è necessario usare il th:errors -->
+		<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" style="color:red"></p>
+		<br>
+		<input type="number" th:field="*{eta}" placeholder="inserire età" required>
+		<p th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}" style="color:red"></p>
+		<br>
+		<input type="password" th:field="*{password}" placeholder="inserire password" required>
+		<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red"></p>
+		<br>
+		<input type="submit" value="Registra Utente">
+
+		<!-- si sfrutta le funzionalità di Spring e Thymeleaf per legare direttamente il form all'oggetto
+		quindi renderlo quasi non una serie di campi di input che ritornano determinate informazioni da
+		assemblare ma fare in modo che questo form rappresenti un po' una sorte di vestito di un ipotetico
+		oggetto utente. L'oggetto Model lavora in questo caso a doppio senso quindi prima passa 
+		un'informazione dal controller al file di view e poi recupera l'informazione trasmettendola al file 
+		di view al controller -->
+	</form>
+</body>
+
+</html>

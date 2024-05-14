@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">  <!-- template engine inserito nel tag di apertura di html -->
+<head>
+<meta charset="UTF-8">
+<title>Home page</title>
+</head>
+<body>
+
+	<!-- link che porterà alla seconda sezione dell'applicazione. Si utilizza la notazione di thymeleaf
+    th:href="@{}."-->
+	<a th:href="@{/form}">Nuovo prodotto</a>
+	
+	
+	
+	<table style="border:2px solid black">
+		<!-- sarà il tr che dovrà essere generato dinamicamente per ogni iterazione. Si utilizza l'attributo
+		th:each="" Si definisce una variabile di iterazione che può essere chiamata come si vuole e si itera
+		sulla chiave che si andrà ad utilizzare -->
+		
+		<tr th:each="p : ${prodotti}" style="border:2px solid black">
+			<!-- anche se si scrive id, descrizione e prezzo si sta comunque invocando i getter -->
+			<td th:text="${p.id}" style="border:2px solid black;  border-collapse: collapse"></td>
+			<td th:text="${p.descrizione}" style="border:2px solid black; border-collapse: collapse"></td>
+			<td th:text="${p.prezzo}" style="border:2px solid black;border-collapse: collapse"></td>
+			<td style="border:2px solid black;border-collapse: collapse">
+			
+			<!-- in questo caso si utilizza lo stesso form per fare delle modifiche. La differenza è rispetto al 
+			caso di sopra, in questo caso è necessario aggiungere un parametro in querystring che permette di identificare
+			in maniera assoluta il prodotto che si vuole modificare. La presenza di questo parametro in prima battuta 
+			permette di capire se si è entrati per registrare un nuovo prodotto o modificare un prodotto esistente. Se
+			si ha il parametro si è entrati per la modifica, altrimenti per la nuova registrazione. Dopo aver capito di
+			essere entrati in modalità modifca, sarà un dato fondamentale perchè è quello che permettterà di recuperare
+			il prodotto andando a fare una query selettiva in base all'id nel database -->
+			
+			<a th:href="@{/form(id=${p.id})}">Modifica</a> 
+			<!-- qui si invia la richiesta e viene gestita da indexController. A differenza delle Servlet dove si può
+			avere solo un metodo doGet in Spring si può  definire tutti i metodi utili per mappare tutte le richieste 
+			necessarie. Se indexController mappa la richiesta principale nulla vieta di fare un metodo che mapperà un
+			sotto path e gestisce la cancellazione esplicita. Anche in fase di cancellazione è fondamentale poter 
+			identificare il prodotto da cancellare.  -->
+			
+			<a th:href="@{/cancella(id=${p.id})}">Elimina</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

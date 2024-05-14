@@ -1,0 +1,62 @@
+*{
+    font-family:'Times New Roman', Times, serif;
+    background-color: rgb(255, 255, 255);
+}
+
+#titolo{
+    text-align: center;
+    color: rgb(154, 124, 48);
+}
+
+
+#p1{
+    font-style: italic;
+    text-align: center;
+    color: darkgrey;
+}
+
+#p2{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color:dimgray;
+}
+
+.p3{
+    text-align: center;
+    color: black;
+    font-style:oblique;
+    letter-spacing: -.05em;
+}
+
+span{
+    font-style: italic;
+    text-align: center;
+    color: darkgrey;
+}
+
+h2{
+    text-transform: uppercase;
+    text-align: center;
+    color: darkgoldenrod;
+    letter-spacing: .5em;
+}
+
+dl dt{
+    color:brown;
+}
+
+#span1{
+    font-style: normal;
+    color: black;
+    font-weight: bold;
+}
+
+.newitem{
+    color: red;
+}
+
+.last{
+    color: red;
+    font-size: small;
+}

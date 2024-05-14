@@ -1,0 +1,94 @@
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    background-color: rgb(51, 48, 48);
+}
+
+header{
+    margin-left: 20px;
+}
+
+
+header, footer{
+    color: rgb(255, 255, 255);
+    padding: 5px;
+}
+
+
+main{
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+nav{
+    margin-bottom: 20px;
+}
+
+nav ul{
+    word-spacing: 5px;
+    margin-top: 10px;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav ul li a{
+    color: rgb(255, 255, 255);
+}
+
+nav ul li a:hover{
+    text-decoration: none;
+    color: rgb(216, 215, 215);
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+
+.grid-item {
+    margin: 10px;
+    padding: 15px;
+}
+
+.first-column {
+    background-color:rgb(250, 250, 250);
+    grid-column: 1;
+}
+
+.second-column {
+    background-color: rgb(228, 228, 228);
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+}
+
+
+.second-column ul{
+    list-style-position: inside;
+}
+
+.second-column a{
+    color: rgb(51, 48, 48);
+}
+
+.second-column a:hover{
+    color: rgb(126, 126, 126);
+    text-decoration: none;
+}
+
+
+footer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
